@@ -38,7 +38,7 @@ test:
     - pip check
     - sarif --version
     - sarif --help
-    - sarif --version | grep -iE "^sarif-tools version {{ version.replace(".", "\\.") }}$"
+    - sarif --version | grep -iE "^sarif-tools v{{ version.replace(".", "\\.") }}$"
 
 about:
   home: https://github.com/microsoft/sarif-tools
