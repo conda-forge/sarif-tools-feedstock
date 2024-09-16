@@ -1,4 +1,4 @@
-{% set version = "3.0.0" %}
+{% set version = "3.0.1" %}
 
 package:
   name: sarif-tools
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/s/sarif-tools/sarif_tools-{{ version }}.tar.gz
-  sha256: 88049665d14afe40e8d455d4bc77c46c0d7b571a0d55db707577b0c1f74e56d7
+  sha256: 36d5c440ca3eca57bf009119c99e9716db20e476385313a8911bfcf55d534ab8
 
 build:
   number: 0
@@ -22,7 +22,7 @@ requirements:
     - python >=3.8
   run:
     - jinja2 >=3.1.4,<4.0.0
-    - jsonpath-ng >=1.6.0,<1.7.0
+    - jsonpath-ng >=1.6.0,<2.0.0
     - matplotlib-base >=3.7,<4.0.0
     - python >=3.8
     - python-docx >=1.1.2,<2
