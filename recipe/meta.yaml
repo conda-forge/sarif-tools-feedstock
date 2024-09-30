@@ -1,4 +1,4 @@
-{% set version = "3.0.2" %}
+{% set version = "3.0.3" %}
 
 package:
   name: sarif-tools
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/s/sarif-tools/sarif_tools-{{ version }}.tar.gz
-  sha256: 4e4585249616b1e76392ac2950e1b018fd39225a444f5ca3bc5f631ad65f527c
+  sha256: 3983cdfad1c82676cb7726b1e57ce26e01645fb3a4b797eb552d456f418e5ea4
 
 build:
   number: 0
