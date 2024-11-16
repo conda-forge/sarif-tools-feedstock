@@ -1,36 +1,40 @@
-{% set version = "3.0.3" %}
+{% set version = "3.0.4" %}
+
+{% set python_min = python_min | default("3.9") %}
 
 package:
   name: sarif-tools
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/s/sarif-tools/sarif_tools-{{ version }}.tar.gz
-  sha256: 3983cdfad1c82676cb7726b1e57ce26e01645fb3a4b797eb552d456f418e5ea4
+  url: https://pypi.org/packages/source/s/sarif-tools/sarif_tools-{{ version }}.tar.gz
+  sha256: 2be0a7624f9b155ab984c99dc6375e18877790adc70eb2d2f164c7e4e47e6c33
 
 build:
   number: 0
+  noarch: python
+  script: 
+    - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check
   entry_points:
     - sarif = sarif.cmdline.main:main
-  noarch: python
-  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   host:
     - pip
     - poetry-core >=1.0.0
-    - python >=3.8.0
+    - python {{ python_min }}
   run:
     - jinja2 >=3.1.4,<4.0.0
     - jsonpath-ng >=1.6.0,<2.0.0
     - matplotlib-base >=3.7.0,<4.0.0
-    - python >=3.8.0
+    - python >={{ python_min }}
     - python-docx >=1.1.2,<2.0.0
     - pyyaml >=6.0.1,<7.0.0
 
 test:
   requires:
     - pip
+    - python {{ python_min }}
     - m2-grep  # [win]
   imports:
     - sarif
